@@ -6,69 +6,44 @@ package com.example.threefatftw;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
- 
-import org.json.simple.JSONArray;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 class Main {
     @SuppressWarnings("unchecked")
-    public static void main() {
-        //System.out.println("zebi");       
-        
-        JSONParser jsonParser = new JSONParser();
-        
-        try (FileReader reader = new FileReader("src/main/java/com/example/threefatftw/lastUpdatedValues.json")) {
-        	
-        	Object obj = jsonParser.parse(reader);
-            String cc = obj.toString();
+    public static Double[] main(int initial, int result) {
+		//System.out.println("zebi");
+		String[] unitArray = {"USDBIF", "USDMWK", "USDBYR", "USDBYN", "USDHUF", "USDAOA", "USDJPY", "USDMNT", "USDPLN", "USDGBP", "USDSBD", "USDAWG", "USDKRW", "USDNPR", "USDINR", "USDYER", "USDAFN", "USDMVR", "USDKZT", "USDSRD", "USDSZL", "USDLTL", "USDSAR", "USDTTD", "USDBHD", "USDHTG", "USDANG", "USDPKR", "USDXCD", "USDLKR", "USDNGN", "USDCRC", "USDCZK", "USDZWL", "USDGIP", "USDRON", "USDMMK", "USDMUR", "USDNOK", "USDSYP", "USDIMP", "USDCAD", "USDBGN", "USDRSD", "USDDOP", "USDKMF", "USDCUP", "USDGMD", "USDTWD", "USDIQD", "USDSDG", "USDBSD", "USDSLL", "USDCUC", "USDZAR", "USDTND", "USDCLP", "USDHNL", "USDUGX", "USDMXN", "USDSTD", "USDLVL", "USDSCR", "USDCDF", "USDBBD", "USDGTQ", "USDFJD", "USDTMT", "USDCLF", "USDBRL", "USDPEN", "USDNZD", "USDWST", "USDNIO", "USDBAM", "USDEGP", "USDMOP", "USDNAD", "USDBZD", "USDMGA", "USDXDR", "USDCOP", "USDRUB", "USDPYG", "USDISK", "USDJMD", "USDLYD", "USDBMD", "USDKWD", "USDPHP", "USDBDT", "USDCNY", "USDTHB", "USDUZS", "USDXPF", "USDMRO", "USDIRR", "USDARS", "USDQAR", "USDGNF", "USDERN", "USDMZN", "USDSVC", "USDBTN", "USDUAH", "USDKES", "USDSEK", "USDCVE", "USDAZN", "USDTOP", "USDOMR", "USDPGK", "USDXOF", "USDGEL", "USDBTC", "USDUYU", "USDMAD", "USDFKP", "USDMYR", "USDEUR", "USDLSL", "USDDKK", "USDJOD", "USDHKD", "USDRWF", "USDAED", "USDBWP", "USDSHP", "USDTRY", "USDLBP", "USDTJS", "USDIDR", "USDKYD", "USDAMD", "USDGHS", "USDGYD", "USDKPW", "USDBOB", "USDKHR", "USDMDL", "USDAUD", "USDILS", "USDTZS", "USDVND", "USDXAU", "USDZMW", "USDLRD", "USDXAG", "USDALL", "USDCHF", "USDHRK", "USDDJF", "USDXAF", "USDKGS", "USDSOS", "USDVEF", "USDVUV", "USDLAK", "USDBND", "USDZMK", "USDETB", "USDJEP", "USDDZD", "USDPAB", "USDGGP", "USDSGD", "USDMKD", "USDUSD"};
 
-            String subcc = cc.substring(cc.indexOf("quotes")+9,cc.lastIndexOf("}")-1);
-            System.out.println("subcc:"+subcc);
-            
-            JSONObject quotes= (JSONObject) obj;
-            JSONObject currencyRate= (JSONObject) quotes.get("quotes");            
-            
-            System.out.println(currencyRate.get("USDTND")); 
-            
-    		Quotes[] curr;
-    		curr= new Quotes[168];
-    		//System.out.println(curr[0].ref+"/"+curr[0].val);
-    		
-    		for (int a = 0; subcc.length() > 11;a++) {
-        		curr[a]= new Quotes(
-        				subcc.substring(1, 7),
-        				Double.parseDouble( subcc.substring(subcc.indexOf(":")+1,subcc.indexOf(",") )
-        						)
-        				);
-        		subcc =subcc.substring(subcc.indexOf(",")+1);
-    		}
-    		for (int a=0; a<166;a++) {
-    			for(int b=0;b<166;b++) {
-    				if (curr[a].ref.equals("USDTND") && curr[b].ref.equals("USDEUR")) {
-    					System.out.println("EURUSD:"+1/curr[b].val+"///"+curr[b].val);
-    					System.out.println("USDTND:"+curr[a].val+"///"+1/curr[a].val);
-    					
-    					System.out.println("EURTND:"+curr[a].val/curr[b].val+"///"+curr[b].val/curr[a].val);
-    				}
-    			}
-    		}
-    		//System.out.println("class Quotes{");
-    		//for (int a = 0; subcc.length()>4 ;a++) {
-    		//	System.out.println("	public double "+subcc.substring(1, 7)+" = "+subcc.substring(subcc.indexOf(":")+1,subcc.indexOf(",") )+";");
-    		//	subcc =subcc.substring(subcc.indexOf(",")+1);
-    		//}
-    		//System.out.println("}");
+		JSONParser jsonParser = new JSONParser();
+		Double[] rates = new Double[2];
+		try (FileReader reader = new FileReader("src/main/java/com/example/threefatftw/lastUpdatedValues.json")) {
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
+			Object obj = jsonParser.parse(reader);
+			String cc = obj.toString();
+
+
+
+			JSONObject jobj = (JSONObject) obj;
+			JSONObject quotes = (JSONObject) jobj.get("quotes");
+			rates[0] = Double.parseDouble(String.valueOf( quotes.get(unitArray[initial])));
+			rates[1] = Double.parseDouble(String.valueOf( quotes.get(unitArray[result])));
+
+			//System.out.println(quotes.get(unitArray[result])+"/////\n\n"+unitArray[initial]+": "+rates[0]+"\n"+unitArray[result]+": "+rates[1]);
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		//System.out.println(unitArray[initial]+": "+rates[0]+"\n"+unitArray[result]+": "+rates[1]);
+
+		return rates;
+	}
 }
 class Quotes{
 	String ref;

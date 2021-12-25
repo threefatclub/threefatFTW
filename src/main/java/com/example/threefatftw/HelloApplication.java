@@ -14,14 +14,18 @@ public class HelloApplication extends Application {
     //TODO
     // - Add Default units ✅✅✅✅✅✅✅✅✅
     // - Add Json for matrix ✅✅✅✅✅
-    // - Add dark theme
     // - Add flags
     // - Discover Classes (styleClass)
+    // - See if Caroussel effect is possible(currency, length, weight)
+    // - See if background music in game possible (loopable)
+    // - Add graph for both currencies
 
     //FIXME Fix the length/currency/weight text not fitting
     // - Fix font thingie ✅✅✅✅✅✅✅✅✅
     // - Link Backend to currency ✅✅✅✅✅✅✅✅✅
     // - Fix length matrix (problem with value order) ✅✅✅✅✅✅✅✅✅
+    // - Fix System Crash (fazet terminate liveresponse popup ~possible solution is timout)
+    // - Fix standalone jar
 
     @Override
     public void start(Stage stage) throws IOException {

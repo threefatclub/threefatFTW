@@ -22,21 +22,26 @@ public class HelloController  implements Initializable {
     @FXML
     private Button currency;
     @FXML
+    private Button updateButton;
+
+    @FXML
     private TextField toconvert;
     @FXML
     private TextField finalresult;
+
     @FXML
-    private ChoiceBox<String>lbox =  new  ChoiceBox();
+    private ComboBox<String>lbox =  new  ComboBox();
     @FXML
-    private ChoiceBox<String> lbox1 =  new  ChoiceBox();
+    private ComboBox<String> lbox1 =  new  ComboBox();
     @FXML
-    private ChoiceBox<String> wbox =  new  ChoiceBox();
+    private ComboBox<String> wbox =  new  ComboBox();
     @FXML
-    private ChoiceBox<String> wbox1 =  new  ChoiceBox();
+    private ComboBox<String> wbox1 =  new  ComboBox();
     @FXML
-    private ChoiceBox<String> cbox =  new  ChoiceBox();
+    private ComboBox<String> cbox =  new  ComboBox();
     @FXML
-    private ChoiceBox<String> cbox1 =  new  ChoiceBox();
+    private ComboBox<String> cbox1 =  new  ComboBox();
+
     @FXML
     private Button changemode;
 
@@ -47,7 +52,10 @@ public class HelloController  implements Initializable {
     private String[] weights = {
             "gram (g, gm)", "kilogram (kg)", "pound (lb)", "ounce (oz)", "carat", "short ton (US)", "long ton (UK)", "tonne (metric ton)", "grain (gr)"
     };
-    private String[] currencies = {"America | USD","Tunisia | TND","Euro | EUR"};
+    private String[] currencies = {
+            "BIF", "MWK", "BYR", "BYN", "HUF", "AOA", "JPY", "MNT", "PLN", "GBP", "SBD", "AWG", "KRW", "NPR", "INR", "YER", "AFN", "MVR", "KZT", "SRD", "SZL", "LTL", "SAR", "TTD", "BHD", "HTG", "ANG", "PKR", "XCD", "LKR", "NGN", "CRC", "CZK", "ZWL", "GIP", "RON", "MMK", "MUR", "NOK", "SYP", "IMP", "CAD", "BGN", "RSD", "DOP", "KMF", "CUP", "GMD", "TWD", "IQD", "SDG", "BSD", "SLL", "CUC", "ZAR", "TND", "CLP", "HNL", "UGX", "MXN", "STD", "LVL", "SCR", "CDF", "BBD", "GTQ", "FJD", "TMT", "CLF", "BRL", "PEN", "NZD", "WST", "NIO", "BAM", "EGP", "MOP", "NAD", "BZD", "MGA", "XDR", "COP", "RUB", "PYG", "ISK", "JMD", "LYD", "BMD", "KWD", "PHP", "BDT", "CNY", "THB", "UZS", "XPF", "MRO", "IRR", "ARS", "QAR", "GNF", "ERN", "MZN", "SVC", "BTN", "UAH", "KES", "SEK", "CVE", "AZN", "TOP", "OMR", "PGK", "XOF", "GEL", "BTC", "UYU", "MAD", "FKP", "MYR", "EUR", "LSL", "DKK", "JOD", "HKD", "RWF", "AED", "BWP", "SHP", "TRY", "LBP", "TJS", "IDR", "KYD", "AMD", "GHS", "GYD", "KPW", "BOB", "KHR", "MDL", "AUD", "ILS", "TZS", "VND", "XAU", "ZMW", "LRD", "XAG", "ALL", "CHF", "HRK", "DJF", "XAF", "KGS", "SOS", "VEF", "VUV", "LAK", "BND", "ZMK", "ETB", "JEP", "DZD", "PAB", "GGP", "SGD", "MKD", "USD"
+    };
+
     //double [][] matrice = new double[5][5];
     public  Parent root;
     private Stage stage;
@@ -74,7 +82,6 @@ public class HelloController  implements Initializable {
         stage.show();
 
     }
-
     public void switchtolength(ActionEvent e) throws IOException{
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("length.fxml"));
@@ -100,6 +107,7 @@ public class HelloController  implements Initializable {
         stage.show();
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lbox.getItems().addAll(lengths);
@@ -148,7 +156,6 @@ public class HelloController  implements Initializable {
         double conversion = l * matrice[index][index1];
         finalresult.setText(Double.toString(conversion));
     }
-
     public void convertweight(ActionEvent e) {
         double[][]  matrice = {
                 {1,0.001,0.0022046226218488,0.03527396194958,5,0.0000011023113109244,9.8420652761106e-7,0.000001,15.432358352941},
@@ -187,41 +194,29 @@ public class HelloController  implements Initializable {
 
         finalresult.setText(Double.toString(conversion));
     }
-
     public void convertcurrency(ActionEvent e) {
-        double [][] matrice = new double[5][5];
-        matrice[0][0] = 1;
-        matrice[0][1] = 2.86;
-        matrice[0][2] = 0.89;
-        matrice[1][0] = 0.35;
-        matrice[1][1] = 1;
-        matrice[1][2] =0.31;
-        matrice[2][0] = 1.13;
-        matrice[2][1] = 3.22;
-        matrice[2][2] = 1;
+        int index;
+        int index1;
 
         l = Double.valueOf(toconvert.getText());
 
         String len = cbox.getValue();
-        int index;
-        if (len.equalsIgnoreCase("Tunisia | TND")){
-            index = 1;
+        if (len.equalsIgnoreCase("TND")){
+            index = 55;
         }else{
             index = cbox.getSelectionModel().getSelectedIndex();
         }
-
         String len1 = cbox1.getValue();
-        int index1;
-        if (len1.equalsIgnoreCase("America | USD")){
-            index1 = 0;
+        if (len1.equalsIgnoreCase("USD")){
+            index1 = 167;
         }else{
             index1 = cbox1.getSelectionModel().getSelectedIndex();
         }
 
-        //System.out.println(len+"///"+len1);
+        System.out.println("//"+index+"\n//"+index1);
+        Double[] rates = Main.main(index1,index);
 
-
-        double conversion = l * matrice[index][index1];
+        double conversion = l * rates[0]/rates[1];
 
         finalresult.setText(Double.toString(conversion));
     }
@@ -278,17 +273,6 @@ public class HelloController  implements Initializable {
         finalresult.setText(Double.toString(conversion));
     }
     public void cswitch(ActionEvent e){
-        double [][] matrice = new double[5][5];
-        matrice[0][0] = 1;
-        matrice[0][1] = 2.86;
-        matrice[0][2] = 0.89;
-        matrice[1][0] = 0.35;
-        matrice[1][1] = 1;
-        matrice[1][2] =0.31;
-        matrice[2][0] = 1.13;
-        matrice[2][1] = 3.22;
-        matrice[2][2] = 1;
-
         SingleSelectionModel<String> index = cbox.getSelectionModel();
         SingleSelectionModel<String> index1 = cbox1.getSelectionModel();
 
@@ -298,14 +282,16 @@ public class HelloController  implements Initializable {
         int i = cbox.getSelectionModel().getSelectedIndex();
         int i1 = cbox1.getSelectionModel().getSelectedIndex();
 
-        double conversion = l * matrice[i][i1];
+        Double[] rates = Main.main(i,i1);
+        double conversion = l * rates[0]/rates[1];
 
         finalresult.setText(Double.toString(conversion));
     }
 
     @FXML
     void requestUpdate(ActionEvent event) throws IOException {
-       LiveResponse.main();
+        //Test.main();
+        LiveResponse.main();
     }
 
 }

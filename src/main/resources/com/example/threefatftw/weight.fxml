@@ -3,7 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
@@ -61,17 +61,17 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ChoiceBox fx:id="wbox" layoutX="186.0" layoutY="97.0" prefHeight="59.0" prefWidth="149.0" value="kilogram (kg)">
+      <ComboBox fx:id="wbox" layoutX="186.0" layoutY="97.0" prefHeight="59.0" prefWidth="149.0" value="kilogram (kg)" visibleRowCount="5">
          <effect>
 
          </effect>
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></ChoiceBox>
-      <ChoiceBox fx:id="wbox1" layoutX="529.0" layoutY="97.0" prefHeight="59.0" prefWidth="149.0" value="pound (lb)">
+         </cursor></ComboBox>
+      <ComboBox fx:id="wbox1" layoutX="529.0" layoutY="97.0" prefHeight="59.0" prefWidth="149.0" value="pound (lb)" visibleRowCount="5">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></ChoiceBox>
+         </cursor></ComboBox>
       <Line endX="189.0" layoutX="146.0" layoutY="156.0" startX="-107.0" stroke="#5ab950" strokeWidth="2.0" />
       <Line endX="186.0" layoutX="489.0" layoutY="156.0" startX="-107.0" stroke="#5ab950" strokeWidth="2.0" />
    </children>
