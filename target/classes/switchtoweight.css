@@ -1,0 +1,18 @@
+@font-face {
+    src: url('BebasNeue-Regular.ttf');
+}
+
+
+ #weight
+ {
+    -fx-background-color: transparent;
+      -fx-font-family: "BebasNeue-Regular";
+    -fx-font-size:35;
+
+ }
+#length,#currency{
+ -fx-background-color: transparent;
+     -fx-font-family: "BebasNeue-Regular";
+     -fx-font-size:20;
+
+ }
