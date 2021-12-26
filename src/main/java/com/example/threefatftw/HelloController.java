@@ -426,6 +426,7 @@ public class HelloController  implements Initializable {
             x.setText("0");
             generatexD.setDisable(false);
             input.setDisable(false);
+            y=0;
         });
         delete.setOnAction(actionEvent ->{
             input.setText(input.getText().substring(0,input.getText().length()-1));
