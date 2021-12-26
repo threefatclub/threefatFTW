@@ -1,31 +1,28 @@
-
-root{
-    -fx-font-size: 14pt;
-    -fx-background: #A78732;
-    -fx-focus-color: #B6A678;
-}
-
-@font-face {
-    src: url('BebasNeue-Regular.ttf');
-}
-Anchropane {
- -fx-background-color: #123456;
- }
-
 TextField
  {
     -fx-background-color: transparent;
-    -fx-font-size: 25;
+    -fx-font-size: 22;
 
  }
 
 
- #lbox1,#lbox,#cbox,#cbox1,#wbox, #wbox1, #changemode
+
+
+
+ #lbox1,#lbox,#cbox,#cbox1,#wbox, #wbox1
   {
      -fx-background-color: transparent;
-        -fx-font-size: 20;
+        -fx-font-size: 18;
     -fx-font-family: "GOTHICB0";
   }
 
 
 .
+#menu,#game,#about{
+     -fx-background-color: transparent;
+
+}
+#game{
+     -fx-background-color: transparent;
+
+}

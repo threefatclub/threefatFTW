@@ -3,14 +3,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.ComboBox?>
-<AnchorPane prefHeight="273.0" prefWidth="712.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.thefinalfinaproject.HelloController">
+<AnchorPane prefHeight="307.0" prefWidth="712.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.threefatftw.HelloController">
     <children>
         <Button fx:id="length" layoutX="271.0" layoutY="14.0" mnemonicParsing="false" prefWidth="175.0" text="LENGTH" textFill="#cf4242">
 
@@ -52,7 +51,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
       </Button>
-        <Button fx:id="switchx" layoutX="377.0" layoutY="190.0" mnemonicParsing="false" onAction="#lswitch" prefHeight="44.0" prefWidth="124.0" text="Switch" textFill="#cf4242">
+        <Button fx:id="switchx" layoutX="380.0" layoutY="190.0" mnemonicParsing="false" onAction="#lswitch" prefHeight="44.0" prefWidth="124.0" text="Switch" textFill="#cf4242">
             <font>
                 <Font name="Candara" size="20.0" />
             </font>
@@ -73,5 +72,10 @@
          </cursor></ComboBox>
       <Line endX="189.0" layoutX="146.0" layoutY="156.0" startX="-107.0" stroke="#cf4242" strokeWidth="2.0" />
       <Line endX="186.0" layoutX="489.0" layoutY="156.0" startX="-107.0" stroke="#cf4242" strokeWidth="2.0" />
+      <Button fx:id="game" layoutX="295.0" layoutY="260.0" mnemonicParsing="false" onAction="#game" text="DO NOT CLICK HERE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>
