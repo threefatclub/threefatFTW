@@ -341,8 +341,7 @@ public class HelloController  implements Initializable {
         stage.show();
     }
 
-
-    public void buttons(ActionEvent e){
+  public void buttons(ActionEvent e){
 
         b0.setOnAction(actionEvent -> {
             input.setText(input.getText()+b0.getText());
@@ -361,56 +360,56 @@ public class HelloController  implements Initializable {
         });
         b2.setOnAction(actionEvent -> {
             input.setText(input.getText()+b2.getText());
-             if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b3.setOnAction(actionEvent -> {
             input.setText(input.getText()+b3.getText());
-           if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b4.setOnAction(actionEvent -> {
             input.setText(input.getText()+b4.getText());
-      if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b5.setOnAction(actionEvent -> {
             input.setText(input.getText()+b5.getText());
-           if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b6.setOnAction(actionEvent -> {
             input.setText(input.getText()+b6.getText());
-       if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b7.setOnAction(actionEvent -> {
             input.setText(input.getText()+b7.getText());
-     if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b8.setOnAction(actionEvent -> {
             input.setText(input.getText()+b8.getText());
-           if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b9.setOnAction(actionEvent -> {
             input.setText(input.getText()+b9.getText());
-               if (input.getText().length() > 2) {
+            if (input.getText().length() > 2) {
                 String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
@@ -421,6 +420,7 @@ public class HelloController  implements Initializable {
             generatexD.setDisable(false);
             input.setDisable(false);
             y=0;
+            generatexD.setText("Generate");
         });
         delete.setOnAction(actionEvent ->{
             input.setText(input.getText().substring(0,input.getText().length()-1));
@@ -432,6 +432,7 @@ public class HelloController  implements Initializable {
 
         generatexD.setOnAction(actionEvent ->{
             text.setAlignment(Pos.CENTER);
+            generatexD.setText("Check !");
             int G=Integer.parseInt(input.getText());
             y=y+1;
             x.setText(String.valueOf(y));
