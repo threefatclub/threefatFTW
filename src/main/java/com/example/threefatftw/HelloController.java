@@ -316,15 +316,7 @@ public class HelloController  implements Initializable {
         cbox1.setValue(sindex);
         cbox.setSelectionModel(index1);
         cbox.setValue(sindex1);
-
-        int i = cbox.getSelectionModel().getSelectedIndex();
-        int i1 = cbox1.getSelectionModel().getSelectedIndex();
-        Double[] rates = Main.main(i,i1);
-             String sinput =  toconvert.getText();
-        l = Integer.parseInt(sinput);
-        double conversion = l * rates[0]/rates[1];
-
-        finalresult.setText(Double.toString(conversion));
+       convertcurrency(e);
     }
 
     @FXML
