@@ -320,6 +320,8 @@ public class HelloController  implements Initializable {
         int i = cbox.getSelectionModel().getSelectedIndex();
         int i1 = cbox1.getSelectionModel().getSelectedIndex();
         Double[] rates = Main.main(i,i1);
+             String sinput =  toconvert.getText();
+        l = Integer.parseInt(sinput);
         double conversion = l * rates[0]/rates[1];
 
         finalresult.setText(Double.toString(conversion));
@@ -352,72 +354,72 @@ public class HelloController  implements Initializable {
 
         b0.setOnAction(actionEvent -> {
             input.setText(input.getText()+b0.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+            if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
 
         });
         b1.setOnAction(actionEvent -> {
             input.setText(input.getText()+b1.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+            if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b2.setOnAction(actionEvent -> {
             input.setText(input.getText()+b2.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+             if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b3.setOnAction(actionEvent -> {
             input.setText(input.getText()+b3.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+           if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b4.setOnAction(actionEvent -> {
             input.setText(input.getText()+b4.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+      if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b5.setOnAction(actionEvent -> {
             input.setText(input.getText()+b5.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+           if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b6.setOnAction(actionEvent -> {
             input.setText(input.getText()+b6.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+       if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b7.setOnAction(actionEvent -> {
             input.setText(input.getText()+b7.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+     if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b8.setOnAction(actionEvent -> {
             input.setText(input.getText()+b8.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+           if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
         b9.setOnAction(actionEvent -> {
             input.setText(input.getText()+b9.getText());
-            if (input.getText().length() > 3) {
-                String s = input.getText().substring(0, 3);
+               if (input.getText().length() > 2) {
+                String s = input.getText().substring(0, 2);
                 input.setText(s);
             }
         });
