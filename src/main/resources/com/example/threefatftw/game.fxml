@@ -4,110 +4,152 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.Image?>
 <AnchorPane prefHeight="302.0" prefWidth="712.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.threefatftw.HelloController">
     <children>
-        <Button fx:id="b0" layoutX="356.0" layoutY="218.0" mnemonicParsing="false" onAction="#buttons" text="0">
-            <font>
-                <Font size="30.0" />
+        <AnchorPane>
+            <children>
+                <ImageView fitHeight="304.0" fitWidth="718.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="2.png"/>
+
+                    </image>
+                </ImageView>
+                <Label fx:id="text" layoutX="91.0" layoutY="22.0" prefHeight="44.0" prefWidth="236.0" text="GUESS THE NUMBER" textFill="WHITE">
+                    <font>
+                        <Font name="BebasNeueBold" size="36.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="input" layoutX="140.0" layoutY="60.0" prefHeight="64.0" prefWidth="120.0">
+
+                </TextField>
+                <Label layoutX="64.0" layoutY="205.0" prefHeight="77.0" prefWidth="31.0" text="0" textFill="#dddddd" fx:id="x">
+                    <font>
+                        <Font name="BebasNeueRegular" size="64.0" />
+                    </font>
+                </Label>
+                <Label layoutX="89.0" layoutY="197.0" prefHeight="93.0" prefWidth="81.0" text="/5" textFill="#dddddd" fx:id="x1">
+                    <font>
+                        <Font name="BebasNeueRegular" size="64.0" />
+                    </font>
+                </Label>
+                <Label layoutX="58.0" layoutY="168.0" prefHeight="57.0" prefWidth="88.0" text="Tries" textFill="#dddddd">
+                    <font>
+                        <Font name="BebasNeueRegular" size="48.0" />
+                    </font>
+                </Label>
+                <Button fx:id="generatexD" layoutX="207.0" layoutY="226.0" onAction="#buttons" mnemonicParsing="false" prefHeight="51.0" prefWidth="178.0" text="Check !">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="back" layoutX="207.0" layoutY="177.0" mnemonicParsing="false" onAction="#switchtolength" prefHeight="44.0" prefWidth="84.0" text="Go Back">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+               <font>
+                  <Font name="BebasNeueRegular" size="18.0" />
+               </font>
+                </Button>
+                <Button fx:id="restart" layoutX="296.0" layoutY="177.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="88.0" text="Restart">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+               <font>
+                  <Font name="BebasNeueRegular" size="18.0" />
+               </font>
+                </Button>
+              <Button fx:id="b1" layoutX="487.0" layoutY="31.0" mnemonicParsing="false" onAction="#buttons" prefHeight="57.0" prefWidth="51.0" text="1">
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>
+                  <font>
+                      <Font size="27.0" />
+                  </font>
+              </Button>
+              <Button fx:id="b2" layoutX="554.0" layoutY="31.0" mnemonicParsing="false" text="2" onAction="#buttons">
+
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>  <font>
+                      <Font size="27.0" />
+                  </font>
+              </Button>
+              <Button fx:id="b3" layoutX="620.0" layoutY="31.0" mnemonicParsing="false" text="3" onAction="#buttons">
+                  <cursor>
+                      <Cursor fx:constant="HAND" />
+                  </cursor>     <font>
+                      <Font size="27.0" />
+                  </font>
+              </Button>
+            </children>
+        </AnchorPane>
+        <Button fx:id="b0" layoutX="488.0" layoutY="222.0" mnemonicParsing="false" text="0" onAction="#buttons">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>  <font>
+                <Font size="27.0" />
             </font>
         </Button>
-        <Button fx:id="b7" layoutX="185.0" layoutY="218.0" mnemonicParsing="false" onAction="#buttons" text="7">
-            <font>
-                <Font size="30.0" />
+        <Button fx:id="b7" layoutX="488.0" layoutY="158.0" mnemonicParsing="false" text="7" onAction="#buttons">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor> <font>
+                <Font size="27.0" />
             </font>
         </Button>
-        <Button fx:id="b8" layoutX="242.0" layoutY="218.0" mnemonicParsing="false" onAction="#buttons" text="8">
-            <font>
-                <Font size="30.0" />
+        <Button fx:id="b8" layoutX="555.0" layoutY="158.0" mnemonicParsing="false" text="8" onAction="#buttons">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>  <font>
+                <Font size="27.0" />
             </font>
         </Button>
-        <Button fx:id="b5" layoutX="412.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttons" text="5">
-            <font>
-                <Font size="30.0" />
+        <Button fx:id="b5" layoutX="555.0" layoutY="95.0" mnemonicParsing="false" text="5" onAction="#buttons">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>   <font>
+                <Font size="27.0" />
             </font>
         </Button>
-        <Button fx:id="b4" layoutX="356.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttons" text="4">
-            <font>
-                <Font size="30.0" />
+        <Button fx:id="b4" layoutX="488.0" layoutY="95.0" mnemonicParsing="false" text="4" onAction="#buttons">
+
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor><font>
+                <Font size="27.0" />
             </font>
         </Button>
-        <Button fx:id="b9" layoutX="299.0" layoutY="218.0" mnemonicParsing="false" onAction="#buttons" text="9">
-            <font>
-                <Font size="30.0" />
+        <Button fx:id="b9" layoutX="621.0" layoutY="158.0" mnemonicParsing="false" text="9" onAction="#buttons">
+
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>   <font>
+                <Font size="27.0" />
             </font>
         </Button>
-        <Button fx:id="b6" layoutX="469.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttons" text="6">
-            <font>
-                <Font size="30.0" />
+        <Button fx:id="b6" layoutX="621.0" layoutY="95.0" mnemonicParsing="false" text="6" onAction="#buttons">
+
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>    <font>
+                <Font size="27.0" />
             </font>
         </Button>
-        <Button fx:id="b1" layoutX="185.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttons" text="1">
-            <font>
-                <Font size="30.0" />
-            </font>
-        </Button>
-        <Button fx:id="b2" layoutX="242.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttons" text="2">
-            <font>
-                <Font size="30.0" />
-            </font>
-        </Button>
-        <Button fx:id="b3" layoutX="299.0" layoutY="153.0" mnemonicParsing="false" onAction="#buttons" text="3">
-            <font>
-                <Font size="30.0" />
-            </font>
-        </Button>
-        <Button fx:id="generatexD" layoutX="412.0" layoutY="218.0" mnemonicParsing="false" onAction="#buttons" prefHeight="65.0" prefWidth="115.0" text="Generate">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Button>
-        <Label layoutX="274.0" text="Welcome">
-            <font>
-                <Font size="40.0" />
-            </font>
-        </Label>
-        <Label layoutX="263.0" layoutY="47.0" text="To guess the number">
-            <font>
-                <Font size="20.0" />
-            </font>
-        </Label>
-        <Label fx:id="text" contentDisplay="CENTER" layoutX="243.0" layoutY="78.0" prefHeight="25.0" prefWidth="236.0" text="Choose a number between 0 and 100" textAlignment="CENTER">
-            <font>
-                <Font size="13.0" />
-            </font></Label>
-        <TextField fx:id="input" layoutX="325.0" layoutY="101.0" prefHeight="30.0" prefWidth="73.0">
-         <font>
-            <Font size="20.0" />
-         </font></TextField>
-        <Button fx:id="back" layoutX="48.0" layoutY="214.0" mnemonicParsing="false" onAction="#switchtolength" text="GET ME BACK">
+        <Button fx:id="delete" layoutX="556.0" layoutY="223.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="116.0"  text="Delete" textFill="#FFFFFF">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
-        </Button>
-        <Label layoutX="576.0" layoutY="77.0" text="Number of tries : " />
-        <Label layoutX="605.0" layoutY="97.0" prefHeight="93.0" prefWidth="40.0" text="0" fx:id="x">
             <font>
-                <Font size="65.0" />
-            </font></Label>
-        <Button fx:id="restart" layoutX="570.0" layoutY="201.0" mnemonicParsing="false" onAction="#buttons" text="Restart">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
+                <Font name="BebasNeueRegular" size="24.0" />
+            </font>
         </Button>
-        <Button fx:id="delete" layoutX="629.0" layoutY="201.0" mnemonicParsing="false" text="delete">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </Button>
-      <ImageView fitHeight="136.0" fitWidth="93.0" layoutX="47.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="http://4.bp.blogspot.com/-Ztola07f1uA/UZ0jmI7gpgI/AAAAAAAAEEk/VH-pi0gjGOQ/s1600/Question.png" />
-         </image>
-      </ImageView>
     </children>
 </AnchorPane>

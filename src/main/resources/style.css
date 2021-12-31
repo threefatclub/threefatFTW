@@ -1,12 +1,20 @@
 TextField
  {
     -fx-background-color: transparent;
-    -fx-font-size: 22;
+    -fx-font-size: 30;
+
 
  }
 
 
+#input{
+    -fx-background-color: transparent;
 
+    -fx-font-size: 60;
+   -fx-text-fill : #FFFFFF;
+
+      -fx-font-family: "BebasNeueBold";
+}
 
 
  #lbox1,#lbox,#cbox,#cbox1,#wbox, #wbox1
@@ -25,4 +33,12 @@ TextField
 #game{
      -fx-background-color: transparent;
 
+}
+#b0,#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#delete,#restart,#generatexD,#back{
+-fx-background-color : rgba(255,255,255,0.8);
+
+-fx-effect: dropshadow(three-pass-box, rgba(94,94,94,0.3), 3, 3, 0, 0);
+}
+#delete{
+-fx-background-color : rgba(128,25,25,0.7);
 }

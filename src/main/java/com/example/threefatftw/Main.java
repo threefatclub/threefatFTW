@@ -22,6 +22,9 @@ class Main {
 		try (FileReader reader = new FileReader("src/main/java/com/example/threefatftw/lastUpdatedValues.json")) {
 
 			Object obj = jsonParser.parse(reader);
+			String cc = obj.toString();
+
+
 
 			JSONObject jobj = (JSONObject) obj;
 			JSONObject quotes = (JSONObject) jobj.get("quotes");

@@ -52,8 +52,7 @@ public class HelloController  implements Initializable {
     private  TextField input;
     @FXML
     private Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,restart,delete;
-    @FXML
-    private Button changemode;
+
     @FXML
     private  Label text,x;
     int y=0;
@@ -80,7 +79,7 @@ public class HelloController  implements Initializable {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("weight.fxml"));
 
 
-         root = (Parent) loader.    load();
+        root = (Parent) loader.    load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
 
@@ -147,30 +146,30 @@ public class HelloController  implements Initializable {
             errorAlert.showAndWait();
 
         } else {
-        l = Double.valueOf(toconvert.getText());
+            l = Double.valueOf(toconvert.getText());
 
-        String len = lbox.getValue();
-        int index;
-        if (len.equalsIgnoreCase("meter (m)")){
-            index=2;
-        }else{
-            index = lbox.getSelectionModel().getSelectedIndex();
-        }
+            String len = lbox.getValue();
+            int index;
+            if (len.equalsIgnoreCase("meter (m)")){
+                index=2;
+            }else{
+                index = lbox.getSelectionModel().getSelectedIndex();
+            }
 
-        String len1 = lbox1.getValue();
-        int index1;
-        if (len1.equalsIgnoreCase("mile (mi)")){
-            index1=7;
-        }else{
-            index1 = lbox1.getSelectionModel().getSelectedIndex();
-        }
+            String len1 = lbox1.getValue();
+            int index1;
+            if (len1.equalsIgnoreCase("mile (mi)")){
+                index1=7;
+            }else{
+                index1 = lbox1.getSelectionModel().getSelectedIndex();
+            }
 
-        //System.out.println(len+":"+index+"///"+len1+":"+index1);
+            //System.out.println(len+":"+index+"///"+len1+":"+index1);
 
 
 
-        double conversion = l * matrice[index][index1];
-        finalresult.setText(Double.toString(conversion));}
+            double conversion = l * matrice[index][index1];
+            finalresult.setText(Double.toString(conversion));}
     }
     public void convertweight(ActionEvent e) {
         double[][]  matrice = {
@@ -192,29 +191,29 @@ public class HelloController  implements Initializable {
             errorAlert.showAndWait();
 
         } else {
-        l = Double.valueOf(toconvert.getText());
+            l = Double.valueOf(toconvert.getText());
 
-        String len = wbox.getValue();
-        int index;
-        if (len.equalsIgnoreCase("kilogram (kg)")){
-            index=1;
-        }else{
-            index = wbox.getSelectionModel().getSelectedIndex();
-        }
+            String len = wbox.getValue();
+            int index;
+            if (len.equalsIgnoreCase("kilogram (kg)")){
+                index=1;
+            }else{
+                index = wbox.getSelectionModel().getSelectedIndex();
+            }
 
-        String len1 = wbox1.getValue();
-        int index1;
-        if (len1.equalsIgnoreCase("pound (lb)")){
-            index1=2;
-        }else{
-            index1 = wbox1.getSelectionModel().getSelectedIndex();
-        }
+            String len1 = wbox1.getValue();
+            int index1;
+            if (len1.equalsIgnoreCase("pound (lb)")){
+                index1=2;
+            }else{
+                index1 = wbox1.getSelectionModel().getSelectedIndex();
+            }
 
-        //System.out.println(len+":"+index+"///"+len1+":"+index1);
+            //System.out.println(len+":"+index+"///"+len1+":"+index1);
 
-        double conversion = l * matrice[index][index1];
+            double conversion = l * matrice[index][index1];
 
-        finalresult.setText(Double.toString(conversion));}
+            finalresult.setText(Double.toString(conversion));}
     }
     public void convertcurrency(ActionEvent e) {
         int index;
@@ -226,27 +225,27 @@ public class HelloController  implements Initializable {
             errorAlert.showAndWait();
 
         } else {
-        l = Double.valueOf(toconvert.getText());
+            l = Double.valueOf(toconvert.getText());
 
-        String len = cbox.getValue();
-        if (len.equalsIgnoreCase("TND")){
-            index = 55;
-        }else{
-            index = cbox.getSelectionModel().getSelectedIndex();
-        }
-        String len1 = cbox1.getValue();
-        if (len1.equalsIgnoreCase("USD")){
-            index1 = 167;
-        }else{
-            index1 = cbox1.getSelectionModel().getSelectedIndex();
-        }
+            String len = cbox.getValue();
+            if (len.equalsIgnoreCase("TND")){
+                index = 55;
+            }else{
+                index = cbox.getSelectionModel().getSelectedIndex();
+            }
+            String len1 = cbox1.getValue();
+            if (len1.equalsIgnoreCase("USD")){
+                index1 = 167;
+            }else{
+                index1 = cbox1.getSelectionModel().getSelectedIndex();
+            }
 
-        System.out.println("//"+index+"\n//"+index1);
-        Double[] rates = Main.main(index1,index);
+            System.out.println("//"+index+"\n//"+index1);
+            Double[] rates = Main.main(index1,index);
 
-        double conversion = l * rates[0]/rates[1];
+            double conversion = l * rates[0]/rates[1];
 
-        finalresult.setText(Double.toString(conversion));}
+            finalresult.setText(Double.toString(conversion));}
     }
 
     public void wswitch(ActionEvent e){
@@ -317,7 +316,7 @@ public class HelloController  implements Initializable {
         cbox1.setValue(sindex);
         cbox.setSelectionModel(index1);
         cbox.setValue(sindex1);
-       convertcurrency(e);
+        convertcurrency(e);
     }
 
     @FXML
@@ -340,14 +339,16 @@ public class HelloController  implements Initializable {
 
         stage.show();
     }
-
+    Random random = new Random();
+    int up = 100 ;
+    int R = random.nextInt(up);
     public void buttons(ActionEvent e){
-      Button[] numberButton= {b0,b1,b2,b3,b4,b5,b6,b7,b8,b9};
-      for (int a=0; a<10;a++){
-          if (e.getSource() == numberButton[a] && Integer.parseInt(input.getText()+numberButton[a].getText()) <=100){
-              input.setText(input.getText()+numberButton[a].getText());
-          }
-      }
+        Button[] numberButton= {b0,b1,b2,b3,b4,b5,b6,b7,b8,b9};
+        for (int a=0; a<10;a++){
+            if (e.getSource() == numberButton[a] && Integer.parseInt(input.getText()+numberButton[a].getText()) <=100){
+                input.setText(input.getText()+numberButton[a].getText());
+            }
+        }
 
 //        System.out.println(e.getSource());
 //        b0.setOnAction(actionEvent -> {
@@ -427,15 +428,13 @@ public class HelloController  implements Initializable {
             generatexD.setDisable(false);
             input.setDisable(false);
             y=0;
-            generatexD.setText("Generate");
+
         });
         delete.setOnAction(actionEvent ->{
             input.setText(input.getText().substring(0,input.getText().length()-1));
         });
 
-        Random random = new Random();
-        int up = 100 ;
-        int R = random.nextInt(up);
+
         // Todo: fix 'For input string: ""' error
         if (e.getSource()== generatexD){
             text.setAlignment(Pos.CENTER);
@@ -456,10 +455,10 @@ public class HelloController  implements Initializable {
 
             }
             else if (G>R) {
-                text.setText ("Your guess is higher!");
+                text.setText ("Too high");
             }
             else if (R>G) {
-                text.setText ("Your guess is lower !");
+                text.setText ("Too Low");
             }
 
         }
