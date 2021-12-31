@@ -99,7 +99,7 @@ class LiveResponse{
 	public static void main() throws IOException{
 		sendLiveRequest();
 		httpClient.close();
-		new BufferedReader(new InputStreamReader(System.in)).readLine();
+		//new BufferedReader(new InputStreamReader(System.in)).readLine();
 	}
 
 }

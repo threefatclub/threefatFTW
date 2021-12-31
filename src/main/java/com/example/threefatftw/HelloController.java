@@ -1,8 +1,10 @@
 package com.example.threefatftw;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,13 +12,14 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 
 public class HelloController  implements Initializable {
 
     @FXML
-    private Button weight;
+    private Button weight,game,generatexD;
     @FXML
     private Button length;
     @FXML
@@ -42,10 +45,17 @@ public class HelloController  implements Initializable {
     @FXML
     private ComboBox<String> cbox1 =  new  ComboBox();
 
+    Alert errorAlert = new Alert(Alert.AlertType.WARNING);
     @FXML
-    private Button changemode;
+    private Parent root ;
+    @FXML
+    private  TextField input;
+    @FXML
+    private Button b0,b1,b2,b3,b4,b5,b6,b7,b8,b9,restart,delete;
 
-
+    @FXML
+    private  Label text,x;
+    int y=0;
     private String[] lengths = {
             "millimeter (mm)", "centimeter (cm)", "meter (m)", "kilometer (km)", "inch (in)", "foot / feet (ft)", "yard (yd)", "mile (mi)", "nautical mile (nmi)"
     };
@@ -57,7 +67,6 @@ public class HelloController  implements Initializable {
     };
 
     //double [][] matrice = new double[5][5];
-    public  Parent root;
     private Stage stage;
     private Scene scene;
     double l;
@@ -70,7 +79,7 @@ public class HelloController  implements Initializable {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("weight.fxml"));
 
 
-         root = (Parent) loader. load();
+        root = (Parent) loader.    load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
 
@@ -130,31 +139,37 @@ public class HelloController  implements Initializable {
                 {1609344,160934.4,1609.344,1.609344,63360,5280,1760,1,0.86897624190065},
                 {1852000,185200,1852,1.852,72913.385826772,6076.1154855643,2025.3718285214,1.1507794480235,1}
         };
+        if (toconvert.getText().trim().isEmpty()){
+            errorAlert.setTitle("Input not valid");
+            errorAlert.setHeaderText("An error has been encountered");
+            errorAlert.setContentText("Please input a valid number");
+            errorAlert.showAndWait();
 
-        l = Double.valueOf(toconvert.getText());
+        } else {
+            l = Double.valueOf(toconvert.getText());
 
-        String len = lbox.getValue();
-        int index;
-        if (len.equalsIgnoreCase("meter (m)")){
-            index=2;
-        }else{
-            index = lbox.getSelectionModel().getSelectedIndex();
-        }
+            String len = lbox.getValue();
+            int index;
+            if (len.equalsIgnoreCase("meter (m)")){
+                index=2;
+            }else{
+                index = lbox.getSelectionModel().getSelectedIndex();
+            }
 
-        String len1 = lbox1.getValue();
-        int index1;
-        if (len1.equalsIgnoreCase("mile (mi)")){
-            index1=7;
-        }else{
-            index1 = lbox1.getSelectionModel().getSelectedIndex();
-        }
+            String len1 = lbox1.getValue();
+            int index1;
+            if (len1.equalsIgnoreCase("mile (mi)")){
+                index1=7;
+            }else{
+                index1 = lbox1.getSelectionModel().getSelectedIndex();
+            }
 
-        //System.out.println(len+":"+index+"///"+len1+":"+index1);
+            //System.out.println(len+":"+index+"///"+len1+":"+index1);
 
 
 
-        double conversion = l * matrice[index][index1];
-        finalresult.setText(Double.toString(conversion));
+            double conversion = l * matrice[index][index1];
+            finalresult.setText(Double.toString(conversion));}
     }
     public void convertweight(ActionEvent e) {
         double[][]  matrice = {
@@ -169,56 +184,68 @@ public class HelloController  implements Initializable {
                 {0.06479891,0.00006479891,0.00014285714285714,0.0022857142857143,0.32399455,7.1428571428571e-8,6.3775510204082e-8,6.479891e-8,1}
         };
 
+        if (toconvert.getText().trim().isEmpty()){
+            errorAlert.setTitle("Input not valid");
+            errorAlert.setHeaderText("An error has been encountered");
+            errorAlert.setContentText("Please input a valid number");
+            errorAlert.showAndWait();
 
-        l = Double.valueOf(toconvert.getText());
+        } else {
+            l = Double.valueOf(toconvert.getText());
 
-        String len = wbox.getValue();
-        int index;
-        if (len.equalsIgnoreCase("kilogram (kg)")){
-            index=1;
-        }else{
-            index = wbox.getSelectionModel().getSelectedIndex();
-        }
+            String len = wbox.getValue();
+            int index;
+            if (len.equalsIgnoreCase("kilogram (kg)")){
+                index=1;
+            }else{
+                index = wbox.getSelectionModel().getSelectedIndex();
+            }
 
-        String len1 = wbox1.getValue();
-        int index1;
-        if (len1.equalsIgnoreCase("pound (lb)")){
-            index1=2;
-        }else{
-            index1 = wbox1.getSelectionModel().getSelectedIndex();
-        }
+            String len1 = wbox1.getValue();
+            int index1;
+            if (len1.equalsIgnoreCase("pound (lb)")){
+                index1=2;
+            }else{
+                index1 = wbox1.getSelectionModel().getSelectedIndex();
+            }
 
-        //System.out.println(len+":"+index+"///"+len1+":"+index1);
+            //System.out.println(len+":"+index+"///"+len1+":"+index1);
 
-        double conversion = l * matrice[index][index1];
+            double conversion = l * matrice[index][index1];
 
-        finalresult.setText(Double.toString(conversion));
+            finalresult.setText(Double.toString(conversion));}
     }
     public void convertcurrency(ActionEvent e) {
         int index;
         int index1;
+        if (toconvert.getText().trim().isEmpty()){
+            errorAlert.setTitle("Input not valid");
+            errorAlert.setHeaderText("An error has been encountered");
+            errorAlert.setContentText("Please input a valid number");
+            errorAlert.showAndWait();
 
-        l = Double.valueOf(toconvert.getText());
+        } else {
+            l = Double.valueOf(toconvert.getText());
 
-        String len = cbox.getValue();
-        if (len.equalsIgnoreCase("TND")){
-            index = 55;
-        }else{
-            index = cbox.getSelectionModel().getSelectedIndex();
-        }
-        String len1 = cbox1.getValue();
-        if (len1.equalsIgnoreCase("USD")){
-            index1 = 167;
-        }else{
-            index1 = cbox1.getSelectionModel().getSelectedIndex();
-        }
+            String len = cbox.getValue();
+            if (len.equalsIgnoreCase("TND")){
+                index = 55;
+            }else{
+                index = cbox.getSelectionModel().getSelectedIndex();
+            }
+            String len1 = cbox1.getValue();
+            if (len1.equalsIgnoreCase("USD")){
+                index1 = 167;
+            }else{
+                index1 = cbox1.getSelectionModel().getSelectedIndex();
+            }
 
-        System.out.println("//"+index+"\n//"+index1);
-        Double[] rates = Main.main(index1,index);
+            System.out.println("//"+index+"\n//"+index1);
+            Double[] rates = Main.main(index1,index);
 
-        double conversion = l * rates[0]/rates[1];
+            double conversion = l * rates[0]/rates[1];
 
-        finalresult.setText(Double.toString(conversion));
+            finalresult.setText(Double.toString(conversion));}
     }
 
     public void wswitch(ActionEvent e){
@@ -233,11 +260,15 @@ public class HelloController  implements Initializable {
                 {1000000,1000,2204.6226218488,35273.96194958,5000000,1.1023113109244,0.9842065276110611,1,15432358.352941},
                 {0.06479891,0.00006479891,0.00014285714285714,0.0022857142857143,0.32399455,7.1428571428571e-8,6.3775510204082e-8,6.479891e-8,1}
         };
-        SingleSelectionModel<String> index = wbox.getSelectionModel();
+        SingleSelectionModel<String>  index = wbox.getSelectionModel();
+        String sindex = wbox.getSelectionModel().getSelectedItem();
         SingleSelectionModel<String> index1 = wbox1.getSelectionModel();
+        String sindex1 = wbox1.getSelectionModel().getSelectedItem();
 
         wbox1.setSelectionModel(index);
+        wbox1.setValue(sindex);
         wbox.setSelectionModel(index1);
+        wbox.setValue(sindex1);
 
         int i = wbox.getSelectionModel().getSelectedIndex();
         int i1 = wbox1.getSelectionModel().getSelectedIndex();
@@ -259,11 +290,14 @@ public class HelloController  implements Initializable {
                 {1852000,185200,1852,1.852,72913.385826772,6076.1154855643,2025.3718285214,1.1507794480235,1}
         };
 
-        SingleSelectionModel<String> index = lbox.getSelectionModel();
+        SingleSelectionModel<String>  index = lbox.getSelectionModel();
+        String sindex = lbox.getSelectionModel().getSelectedItem();
+        String sindex1 = lbox1.getSelectionModel().getSelectedItem();
         SingleSelectionModel<String> index1 = lbox1.getSelectionModel();
-
         lbox1.setSelectionModel(index);
+        lbox1.setValue(sindex);
         lbox.setSelectionModel(index1);
+        lbox.setValue(sindex1);
 
         int i = lbox.getSelectionModel().getSelectedIndex();
         int i1 = lbox1.getSelectionModel().getSelectedIndex();
@@ -273,19 +307,16 @@ public class HelloController  implements Initializable {
         finalresult.setText(Double.toString(conversion));
     }
     public void cswitch(ActionEvent e){
-        SingleSelectionModel<String> index = cbox.getSelectionModel();
+
+        SingleSelectionModel<String>  index = cbox.getSelectionModel();
+        String sindex = cbox.getSelectionModel().getSelectedItem();
+        String sindex1 = cbox1.getSelectionModel().getSelectedItem();
         SingleSelectionModel<String> index1 = cbox1.getSelectionModel();
-
         cbox1.setSelectionModel(index);
+        cbox1.setValue(sindex);
         cbox.setSelectionModel(index1);
-
-        int i = cbox.getSelectionModel().getSelectedIndex();
-        int i1 = cbox1.getSelectionModel().getSelectedIndex();
-
-        Double[] rates = Main.main(i,i1);
-        double conversion = l * rates[0]/rates[1];
-
-        finalresult.setText(Double.toString(conversion));
+        cbox.setValue(sindex1);
+        convertcurrency(e);
     }
 
     @FXML
@@ -293,5 +324,172 @@ public class HelloController  implements Initializable {
         //Test.main();
         LiveResponse.main();
     }
+    public void game(ActionEvent e) throws IOException {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Game.fxml"));
+
+
+        root = loader.load();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+
+        scene.getStylesheets().add("style.css");
+
+        stage.setScene(scene);
+
+
+        stage.show();
+    }
+    Random random = new Random();
+    int up = 100 ;
+    int R = random.nextInt(up);
+    public void buttons(ActionEvent e){
+        Button[] numberButton= {b0,b1,b2,b3,b4,b5,b6,b7,b8,b9};
+        for (int a=0; a<10;a++){
+            if (e.getSource() == numberButton[a] && Integer.parseInt(input.getText()+numberButton[a].getText()) <=100){
+                input.setText(input.getText()+numberButton[a].getText());
+            }
+        }
+
+//        System.out.println(e.getSource());
+//        b0.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b0.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//
+//        });
+//        b1.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b1.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b2.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b2.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b3.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b3.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b4.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b4.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b5.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b5.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b6.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b6.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b7.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b7.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b8.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b8.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b9.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b9.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+        restart.setOnAction(actionEvent ->{
+            input.setText("");
+            x.setText("0");
+            generatexD.setDisable(false);
+            input.setDisable(false);
+            y=0;
+
+        });
+        delete.setOnAction(actionEvent ->{
+            input.setText(input.getText().substring(0,input.getText().length()-1));
+        });
+
+
+        // Todo: fix 'For input string: ""' error
+        if (e.getSource()== generatexD){
+            text.setAlignment(Pos.CENTER);
+            generatexD.setText("Check !");
+            int G=Integer.parseInt(input.getText());
+            y=y+1;
+            x.setText(String.valueOf(y));
+            if (y==5) {
+                text.setText("Sorry but you lost !");
+                input.setDisable(true);
+                generatexD.setDisable(true);
+
+            }
+            else if (G==R){
+                text.setText("You have guessed correctly !");
+                input.setDisable(true);
+                generatexD.setDisable(true);
+
+            }
+            else if (G>R) {
+                text.setText ("Too high");
+            }
+            else if (R>G) {
+                text.setText ("Too Low");
+            }
+
+        }
+        /*generatexD.setOnAction(actionEvent ->{
+            text.setAlignment(Pos.CENTER);
+            generatexD.setText("Check !");
+            int G=Integer.parseInt(input.getText());
+            y=y+1;
+            x.setText(String.valueOf(y));
+            if (y>5) {
+                text.setText("Sorry but you lost !");
+                input.setDisable(true);
+                generatexD.setDisable(true);
+
+            }
+            else
+            if (G==R){
+                text.setText("You have guessed correctly !");
+                input.setDisable(true);
+                generatexD.setDisable(true);
+
+            }
+            else if (G>R) {
+                text.setText ("Your guess is higher!");
+            }
+            else if (R>G) {
+                text.setText ("Your guess is lower !");
+            }
+
+        });*/
+    }
+
 
 }
