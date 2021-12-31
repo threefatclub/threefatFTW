@@ -90,9 +90,9 @@
             </cursor>
         </Button>
         <Label layoutX="576.0" layoutY="77.0" text="Number of tries : " />
-        <Label layoutX="605.0" layoutY="97.0" prefHeight="93.0" prefWidth="31.0" text="0" fx:id="x">
+        <Label layoutX="605.0" layoutY="97.0" prefHeight="93.0" prefWidth="40.0" text="0" fx:id="x">
             <font>
-                <Font size="64.0" />
+                <Font size="65.0" />
             </font></Label>
         <Button fx:id="restart" layoutX="570.0" layoutY="201.0" mnemonicParsing="false" onAction="#buttons" text="Restart">
             <cursor>

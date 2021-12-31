@@ -45,7 +45,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
 
-      <Button fx:id="convert" layoutX="216.0" layoutY="190.0" mnemonicParsing="false" onAction="#convertweight" prefHeight="44.0" prefWidth="124.0" style="-fx-background-color: #5ab950;" text="Convert" textFill="WHITE">
+      <Button fx:id="convert" defaultButton="true" layoutX="216.0" layoutY="190.0" mnemonicParsing="false" onAction="#convertweight" prefHeight="44.0" prefWidth="124.0" style="-fx-background-color: #5ab950;" text="Convert" textFill="WHITE">
          <font>
             <Font name="Candara" size="20.0" />
          </font>

@@ -263,8 +263,9 @@ public class HelloController  implements Initializable {
         };
         SingleSelectionModel<String>  index = wbox.getSelectionModel();
         String sindex = wbox.getSelectionModel().getSelectedItem();
-        String sindex1 = wbox1.getSelectionModel().getSelectedItem();
         SingleSelectionModel<String> index1 = wbox1.getSelectionModel();
+        String sindex1 = wbox1.getSelectionModel().getSelectedItem();
+
         wbox1.setSelectionModel(index);
         wbox1.setValue(sindex);
         wbox.setSelectionModel(index1);
@@ -325,11 +326,10 @@ public class HelloController  implements Initializable {
         LiveResponse.main();
     }
     public void game(ActionEvent e) throws IOException {
-
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Game.fxml"));
 
 
-        root = (Parent) loader. load();
+        root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
 
@@ -341,79 +341,86 @@ public class HelloController  implements Initializable {
         stage.show();
     }
 
-  public void buttons(ActionEvent e){
+    public void buttons(ActionEvent e){
+      Button[] numberButton= {b0,b1,b2,b3,b4,b5,b6,b7,b8,b9};
+      for (int a=0; a<10;a++){
+          if (e.getSource() == numberButton[a] && Integer.parseInt(input.getText()+numberButton[a].getText()) <=100){
+              input.setText(input.getText()+numberButton[a].getText());
+          }
+      }
 
-        b0.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b0.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-
-        });
-        b1.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b1.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b2.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b2.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b3.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b3.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b4.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b4.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b5.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b5.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b6.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b6.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b7.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b7.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b8.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b8.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
-        b9.setOnAction(actionEvent -> {
-            input.setText(input.getText()+b9.getText());
-            if (input.getText().length() > 2) {
-                String s = input.getText().substring(0, 2);
-                input.setText(s);
-            }
-        });
+//        System.out.println(e.getSource());
+//        b0.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b0.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//
+//        });
+//        b1.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b1.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b2.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b2.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b3.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b3.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b4.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b4.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b5.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b5.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b6.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b6.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b7.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b7.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b8.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b8.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
+//        b9.setOnAction(actionEvent -> {
+//            input.setText(input.getText()+b9.getText());
+//            if (input.getText().length() > 2) {
+//                String s = input.getText().substring(0, 2);
+//                input.setText(s);
+//            }
+//        });
         restart.setOnAction(actionEvent ->{
             input.setText("");
             x.setText("0");
@@ -425,12 +432,38 @@ public class HelloController  implements Initializable {
         delete.setOnAction(actionEvent ->{
             input.setText(input.getText().substring(0,input.getText().length()-1));
         });
+
         Random random = new Random();
         int up = 100 ;
         int R = random.nextInt(up);
+        // Todo: fix 'For input string: ""' error
+        if (e.getSource()== generatexD){
+            text.setAlignment(Pos.CENTER);
+            generatexD.setText("Check !");
+            int G=Integer.parseInt(input.getText());
+            y=y+1;
+            x.setText(String.valueOf(y));
+            if (y==5) {
+                text.setText("Sorry but you lost !");
+                input.setDisable(true);
+                generatexD.setDisable(true);
 
+            }
+            else if (G==R){
+                text.setText("You have guessed correctly !");
+                input.setDisable(true);
+                generatexD.setDisable(true);
 
-        generatexD.setOnAction(actionEvent ->{
+            }
+            else if (G>R) {
+                text.setText ("Your guess is higher!");
+            }
+            else if (R>G) {
+                text.setText ("Your guess is lower !");
+            }
+
+        }
+        /*generatexD.setOnAction(actionEvent ->{
             text.setAlignment(Pos.CENTER);
             generatexD.setText("Check !");
             int G=Integer.parseInt(input.getText());
@@ -456,7 +489,7 @@ public class HelloController  implements Initializable {
                 text.setText ("Your guess is lower !");
             }
 
-        });
+        });*/
     }
 
 
