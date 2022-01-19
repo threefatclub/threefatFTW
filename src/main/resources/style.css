@@ -49,4 +49,20 @@ TextField
     -fx-font-family: "BebasNeueBold";
          -fx-font-size: 24;
     }
+    #generatexD{
+    -fx-font-family: "BebasNeueBold";
+         -fx-font-size: 24;
+    }
+    #restart, #back{
+    -fx-font-family: "BebasNeueBold";
+         -fx-font-size: 20;
+    }
+    #x, #x1{
+    -fx-font-family: "BebasNeueBold";
+         -fx-font-size: 70;
+    }
+    #tries{
+    -fx-font-family: "BebasNeueBold";
+            -fx-font-size: 50;
+    }
 
