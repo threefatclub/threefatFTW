@@ -44,12 +44,12 @@ class Main {
 
 		return rates;
 	}
-}
-class Quotes{
-	String ref;
-	double val;
-	public Quotes(String ref, double val) {
-		this.ref= ref;
-		this.val= val;
+	class Quotes{
+		String ref;
+		double val;
+		public Quotes(String ref, double val) {
+			this.ref= ref;
+			this.val= val;
+		}
 	}
 }
