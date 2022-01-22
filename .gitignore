@@ -1,6 +1,6 @@
 
-# Created by https://www.toptal.com/developers/gitignore/api/intellij+all,eclipse,netbeans,macos,windows,linux,java,maven,forcedotcom
-# Edit at https://www.toptal.com/developers/gitignore?templates=intellij+all,eclipse,netbeans,macos,windows,linux,java,maven,forcedotcom
+# Created by https://www.toptal.com/developers/gitignore/api/java,linux,macos,maven,eclipse,windows,netbeans,intellij+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,linux,macos,maven,eclipse,windows,netbeans,intellij+all
 
 ### Eclipse ###
 .metadata
@@ -67,12 +67,6 @@ local.properties
 ### Eclipse Patch ###
 # Spring Boot Tooling
 .sts4-cache/
-
-### ForceDotCom ###
-.project
-.settings
-salesforce.schema
-Referenced Packages
 
 ### Intellij+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -254,6 +248,7 @@ buildNumber.properties
 
 # Eclipse m2e generated files
 # Eclipse Core
+.project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
@@ -293,4 +288,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/intellij+all,eclipse,netbeans,macos,windows,linux,java,maven,forcedotcom
+# End of https://www.toptal.com/developers/gitignore/api/java,linux,macos,maven,eclipse,windows,netbeans,intellij+all

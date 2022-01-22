@@ -33,17 +33,17 @@ public class HelloController  implements Initializable {
     private TextField finalresult;
 
     @FXML
-    private ComboBox<String>lbox =  new  ComboBox();
+    private ComboBox<String>lbox =  new  ComboBox<>();
     @FXML
-    private ComboBox<String> lbox1 =  new  ComboBox();
+    private ComboBox<String> lbox1 =  new  ComboBox<>();
     @FXML
-    private ComboBox<String> wbox =  new  ComboBox();
+    private ComboBox<String> wbox =  new  ComboBox<>();
     @FXML
-    private ComboBox<String> wbox1 =  new  ComboBox();
+    private ComboBox<String> wbox1 =  new  ComboBox<>();
     @FXML
-    private ComboBox<String> cbox =  new  ComboBox();
+    private ComboBox<String> cbox =  new  ComboBox<>();
     @FXML
-    private ComboBox<String> cbox1 =  new  ComboBox();
+    private ComboBox<String> cbox1 =  new  ComboBox<>();
 
     Alert errorAlert = new Alert(Alert.AlertType.WARNING);
     @FXML
@@ -79,7 +79,7 @@ public class HelloController  implements Initializable {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("weight.fxml"));
 
 
-        root = (Parent) loader.    load();
+        root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
 
@@ -95,7 +95,7 @@ public class HelloController  implements Initializable {
 
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("length.fxml"));
 
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add("style.css");
@@ -107,7 +107,7 @@ public class HelloController  implements Initializable {
     }
     public void switchtocurrency(ActionEvent e) throws IOException{
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("currency.fxml"));
-        Parent root = (Parent)loader.load();
+        Parent root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add("style.css");
@@ -146,7 +146,7 @@ public class HelloController  implements Initializable {
             errorAlert.showAndWait();
 
         } else {
-            l = Double.valueOf(toconvert.getText());
+            l = Double.parseDouble(toconvert.getText());
 
             String len = lbox.getValue();
             int index;
@@ -191,7 +191,7 @@ public class HelloController  implements Initializable {
             errorAlert.showAndWait();
 
         } else {
-            l = Double.valueOf(toconvert.getText());
+            l = Double.parseDouble(toconvert.getText());
 
             String len = wbox.getValue();
             int index;
@@ -225,7 +225,7 @@ public class HelloController  implements Initializable {
             errorAlert.showAndWait();
 
         } else {
-            l = Double.valueOf(toconvert.getText());
+            l = Double.parseDouble(toconvert.getText());
 
             String len = cbox.getValue();
             if (len.equalsIgnoreCase("TND")){
@@ -430,9 +430,7 @@ public class HelloController  implements Initializable {
             y=0;
 
         });
-        delete.setOnAction(actionEvent ->{
-            input.setText(input.getText().substring(0,input.getText().length()-1));
-        });
+        delete.setOnAction(actionEvent -> input.setText(input.getText().substring(0,input.getText().length()-1)));
 
 
         // Todo: fix 'For input string: ""' error
