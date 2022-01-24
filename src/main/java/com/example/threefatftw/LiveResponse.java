@@ -26,7 +26,7 @@ class LiveResponse{
 	
     // essential URL structure is built using constants 
 	public static final String ACCESS_KEY = "1dc286032ed037a75e241c33b078f2d0";
-	public static final String BASE_URL = "https://apilayer.net/api/";
+	public static final String BASE_URL = "http://apilayer.net/api/";
 	public static final String ENDPOINT = "live";
 
 	// this object is used for executing requests to the (REST) API
