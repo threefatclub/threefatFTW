@@ -59,7 +59,7 @@ class LiveResponse{
 			
 			// the following line converts the JSON Response to an equivalent Java Object
 			JSONObject exchangeRates = new JSONObject(EntityUtils.toString(entity));
-			
+
 			file =new FileWriter("src/main/java/com/example/threefatftw/lastUpdatedValues.json");
 			file.write(exchangeRates.toString());
 			System.out.println(exchangeRates);
@@ -72,19 +72,10 @@ class LiveResponse{
 			//System.out.println("1 " + exchangeRates.getString("source") + " in GBP : " + exchangeRates.getJSONObject("quotes").getDouble("USDGBP") );
 			//System.out.println("\n");
 			response.close();
-		} catch (ClientProtocolException e) {
+		} catch (IOException | ParseException | JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
+		} finally {
  
             try {
                 file.flush();
