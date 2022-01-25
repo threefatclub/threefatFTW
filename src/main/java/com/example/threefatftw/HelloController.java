@@ -75,7 +75,7 @@ public class HelloController  implements Initializable {
 
 
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("weight.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Weight.fxml"));
 
 
         root = loader.load();
@@ -92,7 +92,7 @@ public class HelloController  implements Initializable {
     }
     public void switchtolength(ActionEvent e) throws IOException{
 
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("length.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Length.fxml"));
 
         Parent root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
@@ -105,7 +105,7 @@ public class HelloController  implements Initializable {
 
     }
     public void switchtocurrency(ActionEvent e) throws IOException{
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("currency.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("Currency.fxml"));
         Parent root = loader.load();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
