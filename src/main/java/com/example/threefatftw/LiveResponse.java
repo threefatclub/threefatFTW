@@ -1,37 +1,24 @@
 package com.example.threefatftw;
 
 //necessary components are imported
-import java.io.BufferedReader;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.ParseException;
-
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-
-import org.apache.http.util.EntityUtils;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import org.apache.hc.client5.http.fluent.Request;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 class LiveResponse{
+
+	static Logger log = LoggerFactory.getLogger(LiveResponse.class);
 	
     // essential URL structure is built using constants 
-	public static final String ACCESS_KEY = "1dc286032ed037a75e241c33b078f2d0";
-	public static final String BASE_URL = "http://apilayer.net/api/";
-	public static final String ENDPOINT = "live";
+	public static final String
+				ACCESS_KEY = "1dc286032ed037a75e241c33b078f2d0",
+				BASE_URL = "http://apilayer.net/api/",
+				ENDPOINT = "live";
 
-	// this object is used for executing requests to the (REST) API
-	static CloseableHttpClient httpClient = HttpClients.createDefault();
-	
 	/**
 	 * 
 	 * Notes:<br><br>
@@ -48,49 +35,31 @@ class LiveResponse{
 	 */
 	
 	// sendLiveRequest() function is created to request and retrieve the data
-	public static FileWriter file;
 	public static void sendLiveRequest(){
-		// The following line initializes the HttpGet Object with the URL in order to send a request
-		HttpGet get = new HttpGet(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY);
-		
-		try {
-			CloseableHttpResponse response =  httpClient.execute(get);
-			HttpEntity entity = response.getEntity();
-			
-			// the following line converts the JSON Response to an equivalent Java Object
-			JSONObject exchangeRates = new JSONObject(EntityUtils.toString(entity));
 
-			file =new FileWriter("src/main/java/com/example/threefatftw/lastUpdatedValues.json");
-			file.write(exchangeRates.toString());
-			System.out.println(exchangeRates);
-			System.out.println("Currency rates successfully fetched . . . \nstored in lastUpdatedValues.json");
-			
+		try {
+			var payload = Request.get(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY)
+					.execute().returnContent().asString();
+//       log.ingo(payload)
+//			JsonNode exchangeRates = new ObjectMapper().readTree(payload);
+      Files.writeString(Paths.get("src/main/resources/lastUpdatedValues.json"), payload);
+			log.info("Currency rates successfully fetched . . . \nstored in lastUpdatedValues.json");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 			// parsed JSON Objects are accessed according to the JSON resonse's hierarchy, output strings are built
-			//Date timeStampDate = new Date((long)(exchangeRates.getLong("timestamp")*1000)); 
+			//Date timeStampDate = new Date((long)(exchangeRates.getLong("timestamp")*1000));
 			//DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
 			//String formattedDate = dateFormat.format(timeStampDate);
 			//System.out.println("1 " + exchangeRates.getString("source") + " in GBP : " + exchangeRates.getJSONObject("quotes").getDouble("USDGBP") );
 			//System.out.println("\n");
-			response.close();
-		} catch (IOException | ParseException | JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
- 
-            try {
-                file.flush();
-                file.close();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }}
+
 	}
 
     // sendLiveRequest() function is executed
-	public static void main() throws IOException{
+	public static void main(String...args) {
 		sendLiveRequest();
-		httpClient.close();
-		//new BufferedReader(new InputStreamReader(System.in)).readLine();
 	}
 
 }
