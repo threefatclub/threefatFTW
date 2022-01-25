@@ -1,5 +1,4 @@
 package com.example.threefatftw;
-import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -241,7 +240,7 @@ public class HelloController  implements Initializable {
             }
 
             System.out.println("//"+index+"\n//"+index1);
-            Double[] rates = Main.main(index1,index);
+            double[] rates = Currency.convert(index1,index);
 
             double conversion = l * rates[0]/rates[1];
 
