@@ -9,7 +9,7 @@ public class FatJarLauncher {
     // more reading here:
     // https://edencoding.com/runtime-components-error/
 
-    public static void main(String[] args) {
+    public static void main(String...args) {
         HelloApplication.main(args);
     }
 

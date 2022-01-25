@@ -13,9 +13,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class HelloController  implements Initializable {
+
+    Logger log = LoggerFactory.getLogger(this.getClass());
 
     @FXML
     private Button weight,game,generatexD;
@@ -163,7 +167,7 @@ public class HelloController  implements Initializable {
                 index1 = lbox1.getSelectionModel().getSelectedIndex();
             }
 
-            //System.out.println(len+":"+index+"///"+len1+":"+index1);
+//            log.info("{}:{}///{}:{}", len, index, len1, index1);
 
 
 
@@ -208,7 +212,7 @@ public class HelloController  implements Initializable {
                 index1 = wbox1.getSelectionModel().getSelectedIndex();
             }
 
-            //System.out.println(len+":"+index+"///"+len1+":"+index1);
+//            log.info("{}:{}///{}:{}", len, index, len1, index1);
 
             double conversion = l * matrice[index][index1];
 
@@ -239,7 +243,7 @@ public class HelloController  implements Initializable {
                 index1 = cbox1.getSelectionModel().getSelectedIndex();
             }
 
-            System.out.println("//"+index+"\n//"+index1);
+            log.info("//{}\n//{}", index, index1);
             double[] rates = Currency.convert(index1,index);
 
             double conversion = l * rates[0]/rates[1];
