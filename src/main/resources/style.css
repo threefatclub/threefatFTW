@@ -1,68 +1,60 @@
 @font-face {
-    src: url('BebasNeueBold.ttf');
+  src: url("BebasNeueBold.ttf");
 }
 
-
-TextField
- {
-    -fx-background-color: transparent;
-    -fx-font-size: 30;
-
-
- }
-
-
-#input{
-    -fx-background-color: transparent;
-
-    -fx-font-size: 60;
-   -fx-text-fill : #FFFFFF;
-
-      -fx-font-family: "BebasNeueBold";
+TextField {
+  -fx-background-color: transparent;
+  -fx-font-size: 30;
 }
 
+#input {
+  -fx-background-color: transparent;
 
- #lbox1,#lbox,#cbox,#cbox1,#wbox, #wbox1
-  {
-     -fx-background-color: transparent;
-        -fx-font-size: 18;
-    -fx-font-family: "GOTHICB0";
-  }
-
-
-.
-#menu,#game,#about{
-     -fx-background-color: transparent;
-
+  -fx-font-size: 60;
+  -fx-text-fill: #ffffff;
+  -fx-font-family: "BebasNeueBold";
 }
-#game{
-     -fx-background-color: transparent;
 
+#lbox1, #lbox, #cbox, #cbox1, #wbox, #wbox1 {
+  -fx-background-color: transparent;
+  -fx-font-size: 18;
+  -fx-font-family: "GOTHICB0";
 }
-#b0,#b1,#b2,#b3,#b4,#b5,#b6,#b7,#b8,#b9,#delete,#restart,#generatexD,#back{
--fx-background-color : rgba(255,255,255,0.8);
 
--fx-effect: dropshadow(three-pass-box, rgba(94,94,94,0.3), 3, 3, 0, 0);
+#menu, #game, #about {
+  -fx-background-color: transparent;
 }
-    #delete{
-    -fx-background-color : rgba(128,25,25,0.7);
-    -fx-font-family: "BebasNeueBold";
-         -fx-font-size: 24;
-    }
-    #generatexD{
-    -fx-font-family: "BebasNeueBold";
-         -fx-font-size: 24;
-    }
-    #restart, #back{
-    -fx-font-family: "BebasNeueBold";
-         -fx-font-size: 20;
-    }
-    #x, #x1{
-    -fx-font-family: "BebasNeueBold";
-         -fx-font-size: 70;
-    }
-    #tries{
-    -fx-font-family: "BebasNeueBold";
-            -fx-font-size: 50;
-    }
+#game {
+  -fx-background-color: transparent;
+}
 
+#b0, #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #delete, #restart, #generatexD, #back {
+  -fx-background-color: rgba(255, 255, 255, 0.8);
+  -fx-effect: dropshadow(three-pass-box, rgba(94, 94, 94, 0.3), 3, 3, 0, 0);
+}
+
+#delete {
+  -fx-background-color: rgba(128, 25, 25, 0.7);
+  -fx-font-family: "BebasNeueBold";
+  -fx-font-size: 24;
+}
+#generatexD {
+  -fx-font-family: "BebasNeueBold";
+  -fx-font-size: 24;
+}
+#restart, #back {
+  -fx-font-family: "BebasNeueBold";
+  -fx-font-size: 20;
+}
+#x, #x1 {
+  -fx-font-family: "BebasNeueBold";
+  -fx-font-size: 70;
+}
+#tries {
+  -fx-font-family: "BebasNeueBold";
+  -fx-font-size: 50;
+}
+#b0:hover, #b1:hover, #b2:hover, #b3:hover, #b4:hover, #b5:hover, #b6:hover, #b7:hover, #b8:hover, #b9:hover {
+  -fx-background-color: rgba(180, 180, 180, 0.8);
+  -fx-color: rgba(255, 255, 255);
+}

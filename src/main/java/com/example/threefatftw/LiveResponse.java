@@ -5,6 +5,9 @@ package com.example.threefatftw;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.apache.hc.client5.http.fluent.Content;
 import org.apache.hc.client5.http.fluent.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,24 +43,30 @@ class LiveResponse{
 		try {
 			var payload = Request.get(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY)
 					.execute().returnContent().asString();
-//       log.ingo(payload)
-//			JsonNode exchangeRates = new ObjectMapper().readTree(payload);
       Files.writeString(Paths.get("src/main/resources/lastUpdatedValues.json"), payload);
 			log.info("Currency rates successfully fetched . . . \nstored in lastUpdatedValues.json");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-			// parsed JSON Objects are accessed according to the JSON resonse's hierarchy, output strings are built
-			//Date timeStampDate = new Date((long)(exchangeRates.getLong("timestamp")*1000));
-			//DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
-			//String formattedDate = dateFormat.format(timeStampDate);
-			//System.out.println("1 " + exchangeRates.getString("source") + " in GBP : " + exchangeRates.getJSONObject("quotes").getDouble("USDGBP") );
-			//System.out.println("\n");
+	}
+	// sendLiveRequest() function is created to request and retrieve the data
+	public static Content storeLiveRequest(){
 
+		try {
+			var payload = Request.get(BASE_URL + ENDPOINT + "?access_key=" + ACCESS_KEY)
+					.execute().returnContent();
+			System.out.println("fetched successfully");
+			return payload;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("error in API request");
+		return null;
 	}
 
-    // sendLiveRequest() function is executed
+
+	// sendLiveRequest() function is executed
 	public static void main(String...args) {
 		sendLiveRequest();
 	}

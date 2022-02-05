@@ -6,13 +6,13 @@
 #currency
  {
     -fx-background-color: transparent;
-      -fx-font-family: "BebasNeue-Regular";
+      -fx-font-family: 'BebasNeue-Regular';
     -fx-font-size:35;
 
  }
 #length, #weight{
  -fx-background-color: transparent;
-     -fx-font-family: "BebasNeue-Regular";
+     -fx-font-family: 'BebasNeue-Regular';
      -fx-font-size:20;
 
  }

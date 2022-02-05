@@ -1,5 +1,7 @@
 package com.example.threefatftw;
 
+import org.apache.hc.client5.http.fluent.Content;
+
 public class FatJarLauncher {
 
     // Shade, Assembly, and other plugins mess with the jar structure and ... threads?
@@ -9,6 +11,7 @@ public class FatJarLauncher {
     // more reading here:
     // https://edencoding.com/runtime-components-error/
 
+    public static Content globalValues = LiveResponse.storeLiveRequest();
     public static void main(String...args) {
         HelloApplication.main(args);
     }
