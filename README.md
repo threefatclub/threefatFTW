@@ -21,7 +21,7 @@ the project contains:
     <li>You have to have maven <em>installed</em> correctly (see
         <a href="https://maven.apache.org/download.cgi"> Download </a>
         and
-        <a href=" https://maven.apache.org/install.html">Install</a>)
+        <a href="https://maven.apache.org/install.html">Install</a>)
     </li>
     <li>You have to have the correct java environment installed</li>
     
